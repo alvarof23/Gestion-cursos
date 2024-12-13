@@ -1,0 +1,14 @@
+{% extends 'cursos/base.html' %} {% block titulo %}Entradas del curso{% endblock
+%} {% block contenido %}
+<ul>
+	<a href="{% url 'crear_curso' %}">Crear Curso</a>
+	{% for curso in cursos %}
+	<li>
+		{{ curso.nombre }} - {{ curso.codigo }}
+		<a href="{% url 'editar_curso' curso.pk %}">Editar</a>
+		<a href="{% url 'eliminar_curso' curso.pk %}">Eliminar</a>
+	</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}
