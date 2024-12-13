@@ -1,0 +1,10 @@
+{% extends 'cursos/base.html' %} {% block titulo %}Entradas del curso{% endblock
+%} {% block contenido %}
+<ul>
+	<h2>Lista de posts</h2>
+	{% for post in posts %}
+	<li><a href="{% url 'detalle_post' pk=post.pk %}">{{post.titulo}}</a></li>
+	{% endfor %}
+</ul>
+
+{% endblock %}
