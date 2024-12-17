@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from .models import Curso, Estudiante, Inscripcion
 from .forms import curso_form, estudiante_form, inscripcion_form
 
+# Vista principal
+def principal(request):
+    return render(request, 'gestion_cursos_app/principal.html')
+
 # Vista para listar todos los cursos
 def listar_cursos(request):
     cursos = Curso.objects.all()
@@ -17,7 +21,7 @@ def crear_curso(request):
             return redirect('listar_cursos')
     else:
         form = curso_form()
-    return render(request, 'cursos/crear_curso.html', {'form': form})
+    return render(request, 'gestion_cursos_app/cursos/crear_curso.html', {'form': form})
 
 # Vista para editar un curso
 def editar_curso(request, pk):
@@ -29,7 +33,7 @@ def editar_curso(request, pk):
             return redirect('listar_cursos')
     else:
         form = curso_form(instance=curso)
-    return render(request, 'cursos/editar_curso.html', {'form': form})
+    return render(request, 'gestion_cursos_app/cursos/editar_curso.html', {'form': form})
 
 # Vista para eliminar un curso
 def eliminar_curso(request, pk):
@@ -46,7 +50,7 @@ def crear_estudiante(request):
             return redirect('listar_estudiantes')
     else:
         form = estudiante_form()
-    return render(request, 'estudiantes/crear_estudiante.html', {'form': form})
+    return render(request, 'gestion_cursos_app/estudiantes/crear_estudiante.html', {'form': form})
 
 #Vista para listar todos los estudiantes
 def listar_estudiantes(request):
@@ -63,7 +67,7 @@ def editar_estudiante(request, pk):
             return redirect('listar_estudiantes')
     else:
         form = estudiante_form(instance=estudiante)
-    return render(request, 'estudiantes/editar_estudiante.html', {'form': form})
+    return render(request, 'gestion_cursos_app/estudiantes/editar_estudiante.html', {'form': form})
 
 #Vista para eliminar un estudiante
 def eliminar_estudiante(request, pk):
@@ -80,7 +84,7 @@ def crear_inscripcion(request):
             return redirect('listar_inscripciones')
     else:
         form = inscripcion_form()
-    return render(request, 'inscripciones/crear_inscripcion.html', {'form': form})
+    return render(request, 'gestion_cursos_app/inscripciones/crear_inscripcion.html', {'form': form})
 
 #Vista para listar todas las inscripciones
 def listar_inscripciones(request):
