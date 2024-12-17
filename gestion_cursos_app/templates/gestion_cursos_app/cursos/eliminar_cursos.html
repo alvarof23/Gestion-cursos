@@ -1,0 +1,11 @@
+{% extends 'cursos/base.html' %} 
+{% block titulo %}
+    eliminación del curso
+{% endblock%}
+{% block contenido %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>¿Estás seguro de que deseas eliminar el curso "{{ curso.nombre }}"?</p>
+        <button type="submit">Eliminar</button>
+    </form>
+{% endblock %}

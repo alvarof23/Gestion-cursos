@@ -1,8 +1,10 @@
-{% extends 'cursos/base.html' %} {% block titulo %}Entradas del curso{% endblock
-%} {% block contenido %}
-<form action="" method="post">
-	{% csrf_token %} {{form}}
-	<input type="submit" value="Agregar">
-</form>
+{% extends 'cursos/base.html' %} 
+{% block titulo %}Creación del curso{% endblock%} 
+{% block contenido %}
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Crear</button>
+	</form>
 
 {% endblock %}

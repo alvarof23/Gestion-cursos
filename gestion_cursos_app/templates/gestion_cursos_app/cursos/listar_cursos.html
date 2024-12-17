@@ -4,10 +4,12 @@
 {%endblock%} 
 
 {% block contenido %}
-<a href="{% url 'crear_cursos' curso.pk %}">Ver detalles</a>
+<a href="{% url 'crear_cursos' %}">Ver detalles</a>
 <ul>
 	{% for curso in cursos %}
 	<li>{{ curso.nombre }} - {{ curso.codigo }}</li>
+	<a href="{% url 'editar_cursos' curso.pk %}">Editar</a>
+	<a href="{% url 'eliminar_cursos' curso.pk %}">Eliminar</a>
 	{% endfor %}
 </ul>
 

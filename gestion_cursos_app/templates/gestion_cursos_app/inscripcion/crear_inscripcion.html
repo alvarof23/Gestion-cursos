@@ -1,11 +1,11 @@
 {% extends 'cursos/base.html' %} 
 {% block titulo %}
-    Edición del curso
+    Creación de la inscripcion
 {% endblock%} 
 {% block contenido %}
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <button type="submit">Crear</button>
     </form>
 {% endblock %}

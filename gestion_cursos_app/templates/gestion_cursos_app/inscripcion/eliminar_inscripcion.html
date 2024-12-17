@@ -1,11 +1,11 @@
 {% extends 'cursos/base.html' %} 
 {% block titulo %}
-    Edición del curso
+    Eliminación de la inscripcion
 {% endblock%} 
 {% block contenido %}
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <p>¿Está seguro de eliminar la inscripción?</p>
+        <button type="submit">Eliminar</button>
     </form>
 {% endblock %}

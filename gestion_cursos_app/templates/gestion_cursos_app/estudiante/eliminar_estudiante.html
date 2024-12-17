@@ -1,11 +1,11 @@
 {% extends 'cursos/base.html' %} 
 {% block titulo %}
-    Edición del curso
+    Eliminación del estudiante
 {% endblock%} 
 {% block contenido %}
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <p>¿Está seguro de que desea eliminar al estudiante {{ estudiante }}?</p>
+        <button type="submit">Eliminar</button>
     </form>
 {% endblock %}

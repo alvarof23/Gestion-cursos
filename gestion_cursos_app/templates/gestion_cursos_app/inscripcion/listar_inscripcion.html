@@ -1,0 +1,13 @@
+{% extends 'cursos/base.html' %} 
+{% block titulo %}
+    Listar inscripciones
+{% endblock%} 
+{% block contenido %}
+<a href="{% url 'crear_inscripcion' %}">Ver detalles</a>
+<ul>
+    {% for inscripcion in inscripciones %}
+    <li>{{ inscripcion.estudiante }} - {{ inscripcion.curso }} - {{ inscripcion.fecha_inscripcion }}</li>
+    <a href="{% url 'eliminar_inscripcion' inscripcion.pk %}">Eliminar</a>
+    {% endfor %}
+</ul>
+{% endblock %}
