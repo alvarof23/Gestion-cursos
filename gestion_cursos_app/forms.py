@@ -9,8 +9,10 @@ class curso_form(forms.ModelForm):
         fields="__all__"
 
     def clean(self):
-        finicio = self.cleaned_data.get('fecha_inicio')
-        ffin = self.cleaned_data.get('fecha_fin')
+        cleaned_data = super().clean()
+
+        finicio = cleaned_data.get('fecha_inicio')
+        ffin = cleaned_data.get('fecha_fin')
         if finicio >= ffin:
             raise ValidationError("La fecha de inicio debe ser anterior a la fecha de finalización.")
         
@@ -20,8 +22,10 @@ class estudiante_form(forms.ModelForm):
         fields="__all__"
 
     def clean(self):
-        fnacimiento = self.cleaned_data.get('fecha_nacimiento')
-        correo = self.cleaned_data.get('email')
+        cleaned_data = super().clean()
+
+        fnacimiento = cleaned_data.get('fecha_nacimiento')
+        correo = cleaned_data.get('email')
 
         if Estudiante.objects.filter(correo = correo).exists:
             raise ValidationError("El correo ya está en uso")
@@ -37,10 +41,12 @@ class inscripcion_form(forms.ModelForm):
         fields="__all__"
 
     def clean(self):
-        finscripcion = self.cleaned_data.get('fecha_inscripcion')
-        ffin = self.cleaned_data.get('fecha_fin')
-        estudiante = self.cleaned_data.get('estudiante')
-        curso = self.cleaned_data.get('curso')
+        cleaned_data = super().clean()
+
+        finscripcion = cleaned_data.get('fecha_inscripcion')
+        ffin = cleaned_data.get('fecha_fin')
+        estudiante = cleaned_data.get('estudiante')
+        curso = cleaned_data.get('curso')
 
         if finscripcion > date.today():
             raise ValidationError("La fecha de inscripción no puede ser posterior al día actual.")

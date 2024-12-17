@@ -6,7 +6,7 @@ from .forms import curso_form
 # Vista para listar todos los cursos
 def listar_cursos(request):
     cursos = Curso.objects.all()
-    return render(request, 'cursos/listar_cursos.html', {'cursos': cursos})
+    return render(request, 'gestion_cursos_app/cursos/listar_cursos.html', {'cursos': cursos})
 
 # Vista para crear un nuevo curso
 def crear_curso(request):
@@ -18,4 +18,3 @@ def crear_curso(request):
     else:
         form = curso_form()
     return render(request, 'cursos/crear_curso.html', {'form': form})
-
