@@ -8,6 +8,14 @@ urlpatterns = [
     path('curso/editar/<int:pk>/', EditarCurso.as_view(), name='editar_curso'),
     path('curso/eliminar/<int:pk>/', EliminarCurso.as_view(), name='eliminar_curso'),
 
+    path('estudiante/', ListarEstudiante.as_view(), name='listar_estudiante'),
+    path('estudiante/crear/', CrearEstudiante.as_view(), name='crear_estudiante'),
+    path('estudiante/editar/<int:pk>/', EditarEstudiante.as_view(), name='editar_estudiante'),
+    path('estudiante/eliminar/<int:pk>/', EliminarEstudiante.as_view(), name='eliminar_estudiante'),
+
+    path('inscritos/', ListarInscripcion.as_view(), name='listar_inscripcion'),
+    path('inscritos/new/', CrearInscripcion.as_view(), name='crear_inscripcion'),
+    path('inscritos/del/<int:pk>/', EliminarInscripcion.as_view(), name='eliminar_inscripcion'),
 
     path('', views.principal, name='principal'),
 
@@ -16,12 +24,12 @@ urlpatterns = [
     # path('curso/editar/<int:pk>/', views.editar_curso, name='editar_curso'),
     # path('curso/eliminar/<int:pk>/', views.eliminar_curso, name='eliminar_curso'),
     
-    path('estudiante/', views.listar_estudiantes, name='listar_estudiante'),
-    path('estudiante/crear/', views.crear_estudiante, name='crear_estudiante'),
-    path('estudiante/editar/<int:pk>/', views.editar_estudiante, name='editar_estudiante'),
-    path('estudiante/eliminar/<int:pk>/', views.eliminar_estudiante, name='eliminar_estudiante'),
+    # path('estudiante/', views.listar_estudiantes, name='listar_estudiante'),
+    # path('estudiante/crear/', views.crear_estudiante, name='crear_estudiante'),
+    # path('estudiante/editar/<int:pk>/', views.editar_estudiante, name='editar_estudiante'),
+    # path('estudiante/eliminar/<int:pk>/', views.eliminar_estudiante, name='eliminar_estudiante'),
 
-    path('inscritos/', views.listar_inscripciones, name='listar_inscripcion'),
-    path('inscritos/new/', views.crear_inscripcion, name='crear_inscripcion'),
-    path('inscritos/del/<int:pk>/', views.eliminar_inscripcion, name='eliminar_inscripcion'),
+    # path('inscritos/', views.listar_inscripciones, name='listar_inscripcion'),
+    # path('inscritos/new/', views.crear_inscripcion, name='crear_inscripcion'),
+    # path('inscritos/del/<int:pk>/', views.eliminar_inscripcion, name='eliminar_inscripcion'),
 ]

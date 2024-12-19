@@ -6,7 +6,7 @@
     <a href="{% url 'crear_inscripcion' %}">crear inscripcion</a>
     <ul>
         {% for inscripcion in inscripciones %}
-        <li>{{ inscripcion.estudiante }} - {{ inscripcion.curso }} - {{ inscripcion.fecha_inscripcion }}</li>
+        <li>{{ inscripcion.estudiante }} / {{ inscripcion.curso }} / {{ inscripcion.fecha_inscripcion }}</li>
         <a href="{% url 'eliminar_inscripcion' pk=inscripcion.pk %}">Eliminar</a>
         {% endfor %}
     </ul>
