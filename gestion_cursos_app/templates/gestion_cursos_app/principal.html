@@ -1,9 +1,13 @@
-{% extends 'cursos/base.html' %} 
+{% extends 'gestion_cursos_app/base.html' %} 
 {% block titulo %}Gestion de cursos{% endblock%} 
 {% block contenido %}
     <h1>¡Bienvenido a la gestión de cursos!</h1>
-    <a href="{% url 'cursos:listar_curso' %}">listat curso</a>
-    <a href="{% url 'estudiante:listar_estudiante' %}">listar estudiante</a>
-    <a href="{% url 'inscripcion:listar_inscripcion' %}">listar profesor</a>
+    <ul>
+        <li><a href="{% url 'listar_curso' %}">listar curso</a></li>
+        <li><a href="{% url 'listar_estudiante' %}">listar estudiante</a></li>
+        <li><a href="{% url 'listar_inscripcion' %}">listar inscripciones</a></li>
+    </ul>
+    
+    
 
 {% endblock %}

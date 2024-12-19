@@ -1,4 +1,4 @@
-{% extends 'cursos/base.html' %} 
+{% extends 'gestion_cursos_app/base.html' %} 
 {% block titulo %}
     listado del Estudainte
 {% endblock%} 
@@ -11,4 +11,5 @@
         <a href="{% url 'eliminar_estudiante' estudiante.pk %}">Eliminar</a>
         {% endfor %}
     </ul>
+    <a href="{% url 'principal' %}">volver</a>
 {% endblock %}

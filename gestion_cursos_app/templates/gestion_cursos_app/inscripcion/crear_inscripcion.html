@@ -1,4 +1,4 @@
-{% extends 'cursos/base.html' %} 
+{% extends 'gestion_cursos_app/base.html' %} 
 {% block titulo %}
     Creación de la inscripcion
 {% endblock%} 
@@ -8,4 +8,6 @@
         {{ form.as_p }}
         <button type="submit">Crear</button>
     </form>
+    <a href="{% url 'listar_inscripcion' %}">volver</a>
+
 {% endblock %}

@@ -1,16 +1,18 @@
 {% extends 'gestion_cursos_app/base.html' %} 
 {% block titulo %}
-	Entradas del curso 
+	Listar curso 
 {%endblock%} 
 
 {% block contenido %}
-<a href="{% url 'crear_cursos' %}">Ver detalles</a>
-<ul>
-	{% for curso in cursos %}
-	<li>{{ curso.nombre }} - {{ curso.codigo }}</li>
-	<a href="{% url 'editar_cursos' curso.pk %}">Editar</a>
-	<a href="{% url 'eliminar_cursos' curso.pk %}">Eliminar</a>
-	{% endfor %}
-</ul>
+	<ul>
+		<a href="{% url 'crear_curso' %}">Crear</a>
+		{% for curso in cursos %}
+		<li>{{ curso.nombre }} - {{ curso.codigo }}</li>
+		<a href="{% url 'editar_curso' pk=curso.pk %}">Editar</a>
+		<a href="{% url 'eliminar_curso' pk=curso.pk %}">Eliminar</a>
+		{% endfor %}
+	</ul>
+
+	<a href="{% url 'principal' %}">volver</a>
 
 {% endblock %}

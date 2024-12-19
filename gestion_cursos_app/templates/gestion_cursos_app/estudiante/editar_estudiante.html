@@ -1,4 +1,4 @@
-{% extends 'cursos/base.html' %} 
+{% extends 'gestion_cursos_app/base.html' %} 
 {% block titulo %}
     Edición del estudiante
 {% endblock%} 
@@ -8,4 +8,6 @@
         {{ form.as_p }}
         <button type="submit">Guardar</button>
     </form>
+    <a href="{% url 'listar_estudiante' %}">volver</a>
+
 {% endblock %}

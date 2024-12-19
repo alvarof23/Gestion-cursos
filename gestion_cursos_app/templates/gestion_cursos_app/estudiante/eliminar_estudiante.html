@@ -1,11 +1,13 @@
-{% extends 'cursos/base.html' %} 
+{% extends 'gestion_cursos_app/base.html' %} 
 {% block titulo %}
     Eliminación del estudiante
 {% endblock%} 
 {% block contenido %}
     <form method="POST">
         {% csrf_token %}
-        <p>¿Está seguro de que desea eliminar al estudiante {{ estudiante }}?</p>
+        <p>¿Estás seguro de que desea eliminar al estudiante {{ estudiante }}?</p>
         <button type="submit">Eliminar</button>
     </form>
+    <a href="{% url 'listar_estudiante' %}">volver</a>
+
 {% endblock %}
