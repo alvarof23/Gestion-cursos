@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Curso, Estudiante, Inscripcion
@@ -49,6 +50,29 @@ class ListarInscripcion(ListView):
     model=Inscripcion
     template_name='gestion_cursos_app/inscripcion/listar_inscripcion.html'
     context_object_name='inscripciones'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        name_search = self.request.GET.get('name_search')
+        estudiante = self.request.GET.get('estudiante')
+        curso = self.request.GET.get('curso')
+
+        if name_search:
+            queryset = queryset.filter(estudiante__nombre__icontains=name_search)
+        if estudiante:
+            queryset = queryset.filter(estudiante__id=estudiante)
+        if curso:
+            queryset = queryset.filter(curso__id=curso)
+        
+        return queryset
+
+    
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['cursos'] = Curso.objects.all()
+        contexto['estudiantes'] = Estudiante.objects.all()
+        return contexto
+
 class CrearInscripcion(CreateView):
     model=Inscripcion
     template_name='gestion_cursos_app/inscripcion/crear_inscripcion.html'

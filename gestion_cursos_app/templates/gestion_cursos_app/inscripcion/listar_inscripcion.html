@@ -3,12 +3,43 @@
     Listar inscripciones
 {% endblock%} 
 {% block contenido %}
+
+    <h2> Filtros Abraham: </h2>
+
+    <form action="" method="GET">
+        <label for="name_search">Texto:</label>
+        <input type="text" name="name_search" id="name_search" value="{{ request.GET.name_search }}">
+
+
+        <select name="curso" id="curso" class="form-select">
+            <option value="">Todos los cursos</option>
+            {% for curso in cursos %}
+            <option value="{{ curso.id }}" {% if request.GET.curso == curso.id|stringformat:"s" %} selected {% endif %}>
+                {{ curso.nombre }}
+            </option>
+            {% endfor %}
+        </select>
+        
+        <select name="estudiante" id="estudiante" class="form-select">
+            <option value="">Todos los estudiantes</option>
+            {% for estudiante in estudiantes %}
+            <option value="{{ estudiante.id }}" {% if request.GET.estudiante == estudiante.id|stringformat:"s" %} selected {% endif %}>
+                {{ estudiante.nombre }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Filtrar">
+    </form>
+
+    <h2> Contenido: </h2>
+
     <a href="{% url 'crear_inscripcion' %}">crear inscripcion</a>
     <ul>
         {% for inscripcion in inscripciones %}
-        <li>{{ inscripcion.estudiante }} / {{ inscripcion.curso }} / {{ inscripcion.fecha_inscripcion }}</li>
-        <a href="{% url 'eliminar_inscripcion' pk=inscripcion.pk %}">Eliminar</a>
+        <li>{{ inscripcion.estudiante }} / {{ inscripcion.curso }} / {{ inscripcion.fecha_inscripcion }}  <a href="{% url 'eliminar_inscripcion' pk=inscripcion.pk %}">Eliminar</a></li>
         {% endfor %}
     </ul>
     <a href="{% url 'principal' %}">volver</a>
+
 {% endblock %}
