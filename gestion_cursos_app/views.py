@@ -56,7 +56,7 @@ class ListarInscripcion(ListView):
         name_search = self.request.GET.get('name_search')
         estudiante = self.request.GET.get('estudiante')
         curso = self.request.GET.get('curso')
-
+    
         if name_search:
             queryset = queryset.filter(estudiante__nombre__icontains=name_search)
         if estudiante:

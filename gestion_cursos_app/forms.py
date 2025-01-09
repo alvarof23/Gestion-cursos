@@ -14,7 +14,7 @@ class curso_form(forms.ModelForm):
         cleaned_data = super().clean()
 
         finicio = cleaned_data.get('fecha_inicio')
-        ffin = cleaned_data.get('fecha_fin')
+        ffin = cleaned_data.get('fecha_fin')                                     
 
         if finicio >= ffin:
             raise ValidationError("La fecha de inicio debe ser anterior a la fecha de finalización.")
